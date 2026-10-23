@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: miniledger-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    region: singapore
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    # Optional paid persistent disk for receipt uploads (free tier uses ephemeral local disk):
+    # disk:
+    #   name: miniledger-uploads
+    #   mountPath: /var/data/uploads
+    #   sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: DEMO_MODE
+        value: "true"
+      - key: DEMO_PHONE
+        value: "+919999999999"
+      - key: DEMO_OTP
+        value: "123456"
+      - key: UPLOAD_DIR
+        value: uploads

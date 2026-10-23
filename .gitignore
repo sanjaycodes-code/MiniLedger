@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment variables (keep examples tracked)
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Uploaded receipts
+uploads/
+uploads-*/
+backend/uploads/
+backend/uploads-*/
+
+# Expo & React Native
+.expo/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Logs & caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
